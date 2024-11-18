@@ -8,7 +8,7 @@ A simple CLI tool to convert images (currently JPG/JPEG) to WebP format. Fast, m
 Install the tool globally using `go install`:
 
 ```bash
-go install github.com/yourusername/2webp/cmd/2webp@latest
+go install github.com/frops/2webp/cmd/2webp@latest
 ```
 
 Make sure `$GOPATH/bin` is in your `PATH`.

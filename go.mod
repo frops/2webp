@@ -1,6 +1,6 @@
 module github.com/frops/2webp
 
-go 1.22.3
+go 1.23
 
 require (
 	github.com/chai2010/webp v1.1.1 // indirect

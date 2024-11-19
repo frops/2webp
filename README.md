@@ -1,9 +1,11 @@
 
 # 2webp
 
-A simple CLI tool to convert images (currently JPG/JPEG) to WebP format. Fast, multithreaded, and easy to use. Without CGO.
+A simple CLI tool to convert images (currently JPG/JPEG) to WebP format. Fast, multithreaded, and easy to use. No CGO dependencies required.
 
 ## Installation
+
+### Option 1: Install via `go install`
 
 Install the tool globally using `go install`:
 
@@ -11,7 +13,23 @@ Install the tool globally using `go install`:
 go install github.com/frops/2webp/cmd/2webp@latest
 ```
 
-Make sure `$GOPATH/bin` is in your `PATH`.
+Make sure `$GOPATH/bin` or `$HOME/bin` is in your `PATH`.
+
+### Option 2: Run with Docker
+
+You can also run `2webp` using Docker, which ensures all dependencies are packaged:
+
+1. **Build the Docker image:**
+   ```bash
+   docker build -t 2webp .
+   ```
+
+2. **Run the container with your images:**
+   ```bash
+   docker run --rm -v /path/to/source:/input -v /path/to/destination:/output 2webp -src /input -dst /output
+   ```
+
+---
 
 ## Usage
 
@@ -44,11 +62,20 @@ Run the `2webp` command with the following options:
    2webp -src ./input -dst ./output -threads 8
    ```
 
+4. **Run via Docker:**
+   ```bash
+   docker run --rm -v /local/source:/input -v /local/destination:/output 2webp -src /input -dst /output -threads 4
+   ```
+
+---
+
 ## Features
 
 - **Multithreaded**: Speed up conversions with the `-threads` option.
 - **Skip existing files**: Avoid reconversion unless `-force` is specified.
-- **Easy to install**: No extra dependencies required, install with `go install`.
+- **No CGO**: Runs without external C dependencies for easier installation.
+- **Docker Support**: Fully packaged with all dependencies using Docker.
+- **Easy to install**: No external libraries needed for `go install`.
 
 ---
 

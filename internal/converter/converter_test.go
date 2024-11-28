@@ -42,33 +42,6 @@ func TestConvertToWebP(t *testing.T) {
 	require.NoError(t, err)
 }
 
-// func TestCollectJobs(t *testing.T) {
-// 	tmpDir := t.TempDir()
-
-// 	// Create a directory structure with files
-// 	jpgFile := filepath.Join(tmpDir, "image.jpg")
-// 	webpFile := filepath.Join(tmpDir, "image.webp")
-// 	err := os.WriteFile(jpgFile, []byte("test"), 0644)
-// 	require.NoError(t, err)
-// 	err = os.WriteFile(webpFile, []byte("webp"), 0644)
-// 	require.NoError(t, err)
-
-// 	destDir := filepath.Join(tmpDir, "output")
-// 	err = os.Mkdir(destDir, 0755)
-// 	require.NoError(t, err)
-
-// 	// Ensure that without --force, existing WebP files are skipped
-// 	jobs, err := collectJobs(tmpDir, destDir, false)
-// 	require.NoError(t, err)
-// 	require.Len(t, jobs, 0)
-
-// 	// Ensure that with --force, all files are added as jobs
-// 	jobs, err = collectJobs(tmpDir, destDir, true)
-// 	require.NoError(t, err)
-// 	require.Len(t, jobs, 1)
-// 	require.Equal(t, jpgFile, jobs[0].SourcePath)
-// }
-
 func TestProcessDirectory(t *testing.T) {
 	tmpDir := t.TempDir()
 	sourceDir := filepath.Join(tmpDir, "src")
